@@ -189,11 +189,10 @@ body {
 }
 
 .deadline-note {
-  font-size: 13px;
-  color: var(--text-light);
-  margin-top: 12px;
-  font-style: italic;
-  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: var(--text-mid);
+  margin-top: 14px;
+  font-weight: 400;
 }
 
 /* ── SECTION DIVIDER ── */
@@ -334,11 +333,10 @@ body {
 .form-input::placeholder { color: var(--text-light); }
 
 .form-hint {
-  font-size: 12px;
-  color: var(--text-light);
-  font-style: italic;
-  margin-top: 5px;
-  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  color: var(--text-mid);
+  margin-top: 6px;
+  line-height: 1.5;
 }
 
 .select-wrap { position: relative; }
@@ -514,15 +512,6 @@ body {
 
     </div>
 
-    <!-- Aviso presente físico -->
-    <div class="notice-card">
-      <p class="notice-title">Sobre o presente físico</p>
-      <p class="notice-text">
-        Não é necessário aguardar o presente físico — ele está sendo confeccionado com muito carinho e pode chegar inclusive depois da festa.
-        <strong>Só venha!</strong>
-      </p>
-    </div>
-
     <hr class="section-sep">
 
     <!-- RSVP Form -->
@@ -535,14 +524,12 @@ body {
 
         <div class="form-group">
           <label class="form-label" for="nome">Nome completo *</label>
-          <input class="form-input" id="nome" type="text" placeholder="Seu nome como está no convite" required>
-          <p class="form-hint">O convite é nominal — preencha exatamente como consta no seu convite.</p>
+          <input class="form-input" id="nome" type="text" placeholder="Seu nome completo" required>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="endereco">Endereço para convite físico</label>
+          <label class="form-label" for="endereco">Endereço para o convite físico</label>
           <input class="form-input" id="endereco" type="text" placeholder="Rua, número, bairro, cidade, CEP">
-          <p class="form-hint">Caso ainda não tenha recebido seu convite físico, informe seu endereço.</p>
         </div>
 
         <div class="form-group">
@@ -558,12 +545,8 @@ body {
 
         <div class="form-group">
           <label class="form-label" for="acompanhante">Acompanhante</label>
-          <input class="form-input" id="acompanhante" type="text" placeholder="Nome do acompanhante (se houver)">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="restricao">Restrição alimentar</label>
-          <input class="form-input" id="restricao" type="text" placeholder="Ex: vegetariano, sem glúten...">
+          <input class="form-input" id="acompanhante" type="text" placeholder="Nome do acompanhante">
+          <p class="form-hint">Se o seu convite menciona um acompanhante, insira o nome aqui. Convites individuais contemplam apenas o convidado nomeado.</p>
         </div>
 
         <button type="submit" class="btn-submit" id="btn-submit">Confirmar presença</button>
@@ -589,11 +572,10 @@ var SHEETS_URL = "COLE_URL_DO_APPS_SCRIPT_AQUI";
 document.getElementById("rsvp-form").addEventListener("submit", function(e) {
   e.preventDefault();
   var btn = document.getElementById("btn-submit");
-  var nome       = document.getElementById("nome").value.trim();
-  var endereco   = document.getElementById("endereco").value.trim();
-  var presenca   = document.getElementById("presenca").value;
-  var acomp      = document.getElementById("acompanhante").value.trim();
-  var restricao  = document.getElementById("restricao").value.trim();
+  var nome     = document.getElementById("nome").value.trim();
+  var endereco = document.getElementById("endereco").value.trim();
+  var presenca = document.getElementById("presenca").value;
+  var acomp    = document.getElementById("acompanhante").value.trim();
 
   if (!nome || !presenca) return;
 
@@ -604,8 +586,7 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
     + "?nome="        + encodeURIComponent(nome)
     + "&endereco="    + encodeURIComponent(endereco)
     + "&presenca="    + encodeURIComponent(presenca)
-    + "&acompanhante="+ encodeURIComponent(acomp)
-    + "&restricao="   + encodeURIComponent(restricao);
+    + "&acompanhante="+ encodeURIComponent(acomp);
 
   new Image().src = url;
 
