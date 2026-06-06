@@ -9,25 +9,22 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #C8AA8A;
-  --paper: #FAF8F4;
-  --lavender: #6B5B8E;
-  --lavender-light: #9B8DB8;
+  --lavender: #5A4E7C;
+  --lavender-light: #8B7DB5;
   --lavender-pale: #D4C8E8;
   --gold: #B8975A;
   --gold-light: #D4B87A;
   --text: #2C2440;
-  --text-mid: #5A5068;
-  --text-light: #8A8098;
-  --border: #E0D8CC;
+  --text-mid: #4A4260;
+  --text-light: #7A7090;
+  --border: rgba(160,148,130,0.5);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
   font-family: "Jost", sans-serif;
-  background-color: var(--bg);
-  background-image: url("Lavandas Aquarela.png");
+  background-image: url("papel.png");
   background-size: cover;
   background-position: center top;
   background-attachment: fixed;
@@ -36,63 +33,78 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 28px 14px 64px;
+  padding: 0 0 80px;
 }
 
-/* ── PAPER CARD ── */
-.paper-card {
-  position: relative;
+/* ── NAV ── */
+.nav-bar {
   width: 100%;
-  max-width: 520px;
-  background-image: url("papel.png");
-  background-size: cover;
-  background-position: center top;
-  border-radius: 3px;
-  overflow: hidden;
-  box-shadow:
-    0 10px 40px rgba(44,36,64,0.22),
-    0 2px 10px rgba(44,36,64,0.12);
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
+  padding: 22px 24px 0;
+  margin-bottom: 28px;
 }
 
-/* ── INNER ── */
-.card-inner {
-  position: relative;
-  z-index: 2;
-  padding: 40px 26px 48px;
+.nav-link {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--lavender);
+  text-decoration: none;
+  padding: 10px 26px;
+  border: 1.5px solid var(--lavender);
+  border-radius: 2px;
+  transition: all 0.25s;
+  background: rgba(255,255,255,0.45);
+}
+.nav-link:hover {
+  background: var(--lavender);
+  color: #fff;
+}
+
+/* ── CONTENT WRAPPER ── */
+.page-content {
+  width: 100%;
+  max-width: 480px;
+  padding: 0 28px;
 }
 
 /* ── HEADER ── */
-.card-header { text-align: center; margin-bottom: 32px; }
+.card-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
 
 .conf-label {
   font-size: 11px;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--lavender);
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 26px;
   display: block;
 }
 
 .date-display {
   font-family: "Cormorant Garamond", serif;
-  font-size: 42px;
+  font-size: 52px;
   font-weight: 300;
   color: var(--text);
   letter-spacing: 0.04em;
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .divider {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 0 auto 16px;
+  margin: 0 auto 22px;
   width: fit-content;
 }
 .divider .line {
-  width: 44px; height: 1px;
+  width: 48px; height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold-light));
 }
 .divider .line.r {
@@ -107,32 +119,30 @@ body {
 
 .couple-names {
   font-family: "Cormorant Garamond", serif;
-  font-size: 52px;
+  font-size: 64px;
   font-weight: 400;
-  font-style: italic;
   color: var(--text);
-  line-height: 1.1;
-  margin-bottom: 18px;
+  line-height: 1.05;
+  margin-bottom: 24px;
 }
 .couple-names .e-letter {
   display: block;
-  font-size: 18px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 0.2em;
   font-style: normal;
   font-weight: 300;
   color: var(--lavender-light);
-  margin: 4px 0;
+  margin: 8px 0;
 }
 
 .location-line {
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-mid);
-  font-weight: 400;
-  margin-bottom: 22px;
-  line-height: 1.9;
+  font-weight: 500;
+  margin-bottom: 30px;
+  line-height: 2.2;
 }
 .location-line .sep {
   color: var(--gold);
@@ -142,74 +152,65 @@ body {
 /* ── CONFIRM BUTTON ── */
 .btn-confirm {
   display: inline-block;
-  padding: 14px 36px;
+  padding: 14px 42px;
   border: 1.5px solid var(--lavender);
   border-radius: 2px;
-  font-size: 12px;
-  letter-spacing: 0.24em;
+  font-size: 11px;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--lavender);
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s;
-  cursor: pointer;
-  background: transparent;
+  background: rgba(255,255,255,0.35);
   font-family: "Jost", sans-serif;
+  margin-bottom: 14px;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 .btn-confirm:hover {
   background: var(--lavender);
   color: #fff;
 }
 
-.venue-address {
+.deadline-note {
   font-size: 14px;
   color: var(--text-mid);
-  margin-top: 6px;
-  margin-bottom: 20px;
-  letter-spacing: 0.02em;
-}
-
-.deadline-note {
-  font-size: 15px;
-  color: var(--text-mid);
-  margin-top: 14px;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 /* ── SECTION DIVIDER ── */
 .section-sep {
   border: none;
   border-top: 1px solid var(--border);
-  margin: 36px 0;
+  margin: 40px 0;
 }
 
 /* ── FAQ ── */
 .faq-label {
   font-size: 11px;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--lavender);
   font-weight: 500;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   display: block;
 }
 
-.faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
+.faq-list { display: flex; flex-direction: column; }
 
 .faq-item {
   border-bottom: 1px solid var(--border);
-  padding: 20px 0;
+  padding: 22px 0;
 }
 .faq-item:first-child { border-top: 1px solid var(--border); }
 
 .faq-question {
   font-family: "Cormorant Garamond", serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--text);
   line-height: 1.3;
@@ -219,7 +220,7 @@ body {
 .faq-answer {
   font-size: 15px;
   color: var(--text-mid);
-  line-height: 1.75;
+  line-height: 1.8;
   font-weight: 300;
 }
 
@@ -228,59 +229,35 @@ body {
   font-weight: 500;
 }
 
-/* ── NOTICE CARD ── */
-.notice-card {
-  background: linear-gradient(135deg, #F3F0F8, #FAF8F4);
-  border: 1px solid var(--lavender-pale);
-  border-radius: 6px;
-  padding: 20px 22px;
-  margin-top: 32px;
-}
-
-.notice-title {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 19px;
-  font-style: italic;
-  color: var(--lavender);
-  margin-bottom: 10px;
-}
-
-.notice-text {
-  font-size: 15px;
-  color: var(--text-mid);
-  line-height: 1.75;
-  font-weight: 300;
-}
-
 /* ── RSVP FORM SECTION ── */
 .rsvp-title {
   font-family: "Cormorant Garamond", serif;
-  font-size: 34px;
+  font-size: 38px;
   font-weight: 400;
   font-style: italic;
   color: var(--text);
   text-align: center;
   line-height: 1.2;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .rsvp-subtitle {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-mid);
   text-align: center;
-  line-height: 1.7;
-  margin-bottom: 28px;
+  line-height: 1.75;
+  margin-bottom: 32px;
 }
 
 /* ── FORM ── */
-.form-group { margin-bottom: 20px; }
+.form-group { margin-bottom: 22px; }
 
 .form-label {
   display: block;
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-mid);
+  color: var(--text);
   font-weight: 500;
   margin-bottom: 8px;
 }
@@ -288,25 +265,29 @@ body {
 .form-input, .form-select {
   width: 100%;
   padding: 13px 16px;
-  border: 1px solid var(--border);
-  border-radius: 3px;
+  border: 1px solid rgba(160,148,130,0.7);
+  border-radius: 2px;
   font-family: "Jost", sans-serif;
   font-size: 15px;
   font-weight: 300;
   color: var(--text);
-  background: #fff;
+  background: rgba(255,255,255,0.7);
   outline: none;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background 0.25s;
   appearance: none;
 }
-.form-input:focus, .form-select:focus { border-color: var(--lavender-light); }
+.form-input:focus, .form-select:focus {
+  border-color: var(--lavender-light);
+  background: rgba(255,255,255,0.9);
+}
 .form-input::placeholder { color: var(--text-light); }
 
 .form-hint {
-  font-size: 14px;
-  color: var(--text-mid);
+  font-size: 13px;
+  color: var(--text-light);
   margin-top: 6px;
   line-height: 1.5;
+  font-style: italic;
 }
 
 .select-wrap { position: relative; }
@@ -328,18 +309,19 @@ body {
   background: var(--lavender);
   color: #fff;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   font-family: "Jost", sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   cursor: pointer;
   text-align: center;
   transition: background 0.25s;
   margin-top: 8px;
 }
-.btn-submit:hover { background: #5A4A7A; }
-.btn-submit:disabled { background: #ccc; cursor: default; }
+.btn-submit:hover { background: #4A3E6A; }
+.btn-submit:disabled { background: #999; cursor: default; }
 
 .form-success {
   text-align: center;
@@ -348,10 +330,10 @@ body {
 }
 .form-success-title {
   font-family: "Cormorant Garamond", serif;
-  font-size: 26px;
+  font-size: 30px;
   font-style: italic;
   color: var(--lavender);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .form-success-text {
   font-size: 15px;
@@ -361,142 +343,139 @@ body {
 
 .footer-sign {
   text-align: center;
-  margin-top: 36px;
+  margin-top: 52px;
 }
 .footer-sign p {
   font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
+  font-size: 17px;
   font-style: italic;
-  color: var(--text-light);
+  color: var(--text-mid);
   line-height: 1.8;
 }
 </style>
 </head>
 <body>
 
-<nav style="width:100%;max-width:520px;display:flex;justify-content:center;margin-bottom:18px;">
-  <a href="https://refreshtime.github.io/presentesHingridMaira/" style="font-size:16px;font-weight:600;letter-spacing:0.04em;color:var(--lavender);text-decoration:none;padding:14px 32px;background:#FAF8F4;border:none;border-radius:6px;box-shadow:0 4px 16px rgba(44,36,64,0.22);transition:all 0.25s;display:inline-block;">Lista de Presentes</a>
-</nav>
+<div class="nav-bar">
+  <a href="https://refreshtime.github.io/presentesHingridMaira/" class="nav-link">Lista de Presentes</a>
+</div>
 
-<div class="paper-card">
+<div class="page-content">
 
-  <div class="card-inner">
+  <!-- Header -->
+  <header class="card-header">
+    <span class="conf-label">Confirmação de Presença</span>
 
-    <!-- Header -->
-    <header class="card-header">
-      <span class="conf-label">Confirmação de Presença</span>
+    <p class="date-display">07.09.26</p>
 
-      <p class="date-display">07.09.26</p>
+    <div class="divider">
+      <span class="line"></span>
+      <span class="diamond"></span>
+      <span class="line r"></span>
+    </div>
 
-      <div class="divider">
-        <span class="line"></span>
-        <span class="diamond"></span>
-        <span class="line r"></span>
-      </div>
+    <h1 class="couple-names">
+      Hingrid
+      <span class="e-letter">e</span>
+      Maíra
+    </h1>
 
-      <h1 class="couple-names">
-        Hingrid
-        <span class="e-letter">e</span>
-        Maíra
-      </h1>
+    <p class="location-line">
+      Villa Mantova<span class="sep">&middot;</span>São Paulo<br>
+      16h
+    </p>
 
-      <p class="location-line">
-        Villa Mantova<span class="sep">&middot;</span>São Paulo<br>
-        16h às 00h
+    <a href="#rsvp" class="btn-confirm">Confirmar Presença</a>
+    <p class="deadline-note">Confirmações até 07 de agosto de 2026</p>
+  </header>
+
+  <hr class="section-sep">
+
+  <!-- FAQ -->
+  <span class="faq-label">Informações</span>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <p class="faq-question">Como e até quando confirmo minha presença?</p>
+      <p class="faq-answer">Pedimos que a presença seja confirmada até o dia <strong>07/08/2026</strong> através deste link.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-question">Como devo me vestir?</p>
+      <p class="faq-answer"><strong>Esporte fino.</strong></p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-question">Como chego ao casamento?</p>
+      <p class="faq-answer">
+        R. Rom&#xea;nia, 21 &mdash; Santana de Parna&#xed;ba, SP &mdash; CEP 06523&#x2011;045<br><br>
+        O local é de fácil acesso de <strong>Uber</strong> e possui <strong>estacionamento</strong> e <strong>valet</strong>.
       </p>
-
-      <a href="#rsvp" class="btn-confirm">Confirmar Presença</a>
-      <p class="deadline-note">Confirmações até 07 de agosto de 2026</p>
-    </header>
-
-    <hr class="section-sep">
-
-    <!-- FAQ -->
-    <span class="faq-label">Informações</span>
-
-    <div class="faq-list">
-
-      <div class="faq-item">
-        <p class="faq-question">Como e até quando confirmo minha presença?</p>
-        <p class="faq-answer">Pedimos que a presença seja confirmada até o dia <strong>07/08/2026</strong> através deste link.</p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-question">Como devo me vestir?</p>
-        <p class="faq-answer"><strong>Esporte fino.</strong></p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-question">Como chego ao casamento?</p>
-        <p class="faq-answer">
-          R. Rom&#xea;nia, 21 &mdash; Santana de Parna&#xed;ba, SP &mdash; CEP 06523&#x2011;045<br><br>
-          O local é de fácil acesso de <strong>Uber</strong> e possui <strong>estacionamento</strong> e <strong>valet</strong>.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-question">Como funcionam os convites e acompanhantes?</p>
-        <p class="faq-answer">Os convites que incluem acompanhantes estão sinalizados. Os convites individuais possuem apenas o nome do convidado.</p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-question">Qual o horário do casamento?</p>
-        <p class="faq-answer">O casamento inicia às <strong>16h</strong> — por favor, não se atrase. A celebração vai até às <strong>00h</strong>.</p>
-      </div>
-
     </div>
 
-    <hr class="section-sep">
-
-    <!-- RSVP Form -->
-    <div id="rsvp">
-      <h2 class="rsvp-title">Podemos contar com você?</h2>
-      <p class="rsvp-subtitle">Preencha o formulário abaixo para confirmar sua presença.<br>Sua resposta é muito importante para o nosso planejamento.</p>
-
-      <form id="rsvp-form">
-
-        <div class="form-group">
-          <label class="form-label" for="nome">Nome completo *</label>
-          <input class="form-input" id="nome" type="text" placeholder="Seu nome completo" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="endereco">Endereço para o convite físico</label>
-          <input class="form-input" id="endereco" type="text" placeholder="Rua, número, bairro, cidade, CEP">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="presenca">Confirmação de presença *</label>
-          <div class="select-wrap">
-            <select class="form-select" id="presenca" required>
-              <option value="" disabled selected>Selecione</option>
-              <option value="sim">Sim, estarei presente</option>
-              <option value="nao">Não poderei comparecer</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="mensagem">Mensagem para as noivas</label>
-          <textarea class="form-input" id="mensagem" placeholder="Escreva sua mensagem..." style="height:90px;resize:none;"></textarea>
-        </div>
-
-        <button type="submit" class="btn-submit" id="btn-submit">Confirmar presença</button>
-
-      </form>
-
-      <div class="form-success" id="form-success">
-        <p class="form-success-title">Presença confirmada!</p>
-        <p class="form-success-text">Obrigadas pela confirmação.<br>Mal podemos esperar para celebrar com você.</p>
-        <a href="https://refreshtime.github.io/presentesHingridMaira/" style="display:inline-block;margin-top:22px;padding:14px 32px;background:var(--lavender);color:#fff;border-radius:4px;font-family:'Jost',sans-serif;font-size:15px;font-weight:500;text-decoration:none;letter-spacing:0.04em;">Ver Lista de Presentes</a>
-      </div>
+    <div class="faq-item">
+      <p class="faq-question">Como funcionam os convites e acompanhantes?</p>
+      <p class="faq-answer">Os convites que incluem acompanhantes estão sinalizados. Os convites individuais possuem apenas o nome do convidado.</p>
     </div>
 
-    <div class="footer-sign">
-      <p>Com amor,<br>Hingrid &amp; Maíra</p>
+    <div class="faq-item">
+      <p class="faq-question">Qual o horário do casamento?</p>
+      <p class="faq-answer">O casamento inicia às <strong>16h</strong> — por favor, não se atrase. A celebração vai até às <strong>00h</strong>.</p>
     </div>
 
   </div>
+
+  <hr class="section-sep">
+
+  <!-- Form -->
+  <div id="rsvp">
+    <h2 class="rsvp-title">Podemos contar com você?</h2>
+    <p class="rsvp-subtitle">Preencha o formulário abaixo para confirmar sua presença.<br>Sua resposta é muito importante para o nosso planejamento.</p>
+
+    <form id="rsvp-form">
+
+      <div class="form-group">
+        <label class="form-label" for="nome">Nome completo *</label>
+        <input class="form-input" id="nome" type="text" placeholder="Seu nome completo" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="endereco">Endereço para o convite físico</label>
+        <input class="form-input" id="endereco" type="text" placeholder="Rua, número, bairro, cidade, CEP">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="presenca">Confirmação de presença *</label>
+        <div class="select-wrap">
+          <select class="form-select" id="presenca" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="sim">Sim, estarei presente</option>
+            <option value="nao">Não poderei comparecer</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="mensagem">Mensagem para as noivas</label>
+        <textarea class="form-input" id="mensagem" placeholder="Escreva sua mensagem..." style="height:90px;resize:none;"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit" id="btn-submit">Confirmar presença</button>
+
+    </form>
+
+    <div class="form-success" id="form-success">
+      <p class="form-success-title">Presença confirmada!</p>
+      <p class="form-success-text">Obrigadas pela confirmação.<br>Mal podemos esperar para celebrar com você.</p>
+      <a href="https://refreshtime.github.io/presentesHingridMaira/" style="display:inline-block;margin-top:22px;padding:14px 32px;background:var(--lavender);color:#fff;border-radius:2px;font-family:'Jost',sans-serif;font-size:14px;font-weight:500;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;">Ver Lista de Presentes</a>
+    </div>
+  </div>
+
+  <div class="footer-sign">
+    <p>Com amor,<br>Hingrid &amp; Maíra</p>
+  </div>
+
 </div>
 
 <script>
