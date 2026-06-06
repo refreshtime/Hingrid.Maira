@@ -556,9 +556,8 @@ body {
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="acompanhante">Acompanhante</label>
-          <input class="form-input" id="acompanhante" type="text" placeholder="Nome do acompanhante">
-          <p class="form-hint">Se o seu convite menciona um acompanhante, insira o nome aqui. Convites individuais contemplam apenas o convidado nomeado.</p>
+          <label class="form-label" for="mensagem">Mensagem para as noivas</label>
+          <textarea class="form-input" id="mensagem" placeholder="Escreva sua mensagem..." style="height:90px;resize:none;"></textarea>
         </div>
 
         <button type="submit" class="btn-submit" id="btn-submit">Confirmar presença</button>
@@ -579,7 +578,7 @@ body {
 </div>
 
 <script>
-var SHEETS_URL = "COLE_URL_DO_APPS_SCRIPT_AQUI";
+var SHEETS_URL = "https://script.google.com/macros/s/AKfycbzKoQZkj3PULx09AXERVJPFiwnt8lZ1j1CdZjkfoXomApjKPcmWnOcZ3hsfpJB2XZpA/exec";
 
 document.getElementById("rsvp-form").addEventListener("submit", function(e) {
   e.preventDefault();
@@ -587,7 +586,7 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
   var nome     = document.getElementById("nome").value.trim();
   var endereco = document.getElementById("endereco").value.trim();
   var presenca = document.getElementById("presenca").value;
-  var acomp    = document.getElementById("acompanhante").value.trim();
+  var mensagem = document.getElementById("mensagem").value.trim();
 
   if (!nome || !presenca) return;
 
@@ -595,10 +594,10 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
   btn.textContent = "Enviando...";
 
   var url = SHEETS_URL
-    + "?nome="        + encodeURIComponent(nome)
-    + "&endereco="    + encodeURIComponent(endereco)
-    + "&presenca="    + encodeURIComponent(presenca)
-    + "&acompanhante="+ encodeURIComponent(acomp);
+    + "?nome="     + encodeURIComponent(nome)
+    + "&endereco=" + encodeURIComponent(endereco)
+    + "&presenca=" + encodeURIComponent(presenca)
+    + "&mensagem=" + encodeURIComponent(mensagem);
 
   new Image().src = url;
 
