@@ -73,8 +73,9 @@ body {
 
 /* ── HEADER ── */
 .card-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 36px;
+  padding-right: 38%;
 }
 
 .conf-label {
@@ -101,7 +102,7 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 0 auto 22px;
+  margin: 0 0 22px;
   width: fit-content;
 }
 .divider .line {
@@ -153,7 +154,7 @@ body {
 /* ── CONFIRM BUTTON ── */
 .btn-confirm {
   display: inline-block;
-  padding: 14px 42px;
+  padding: 14px 32px;
   border: 1.5px solid var(--lavender);
   border-radius: 2px;
   font-size: 11px;
@@ -163,13 +164,9 @@ body {
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s;
-  background: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.5);
   font-family: "Jost", sans-serif;
   margin-bottom: 14px;
-  display: block;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 .btn-confirm:hover {
   background: var(--lavender);
@@ -181,6 +178,30 @@ body {
   color: var(--text-mid);
   font-weight: 300;
 }
+
+/* ── BOTTOM NAV ── */
+.bottom-nav {
+  text-align: center;
+  margin-top: 44px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-gifts {
+  display: inline-block;
+  padding: 15px 40px;
+  background: var(--lavender);
+  color: #fff;
+  border-radius: 2px;
+  font-family: "Jost", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.25s;
+}
+.btn-gifts:hover { background: #4A3E6A; }
 
 /* ── SECTION DIVIDER ── */
 .section-sep {
@@ -357,10 +378,6 @@ body {
 </head>
 <body>
 
-<div class="nav-bar">
-  <a href="https://refreshtime.github.io/presentesHingridMaira/" class="nav-link">Lista de Presentes</a>
-</div>
-
 <div class="page-content">
 
   <!-- Header -->
@@ -477,6 +494,10 @@ body {
     <p>Com amor,<br>Hingrid &amp; Maíra</p>
   </div>
 
+  <div class="bottom-nav">
+    <a href="https://refreshtime.github.io/presentesHingridMaira/" class="btn-gifts">Lista de Presentes</a>
+  </div>
+
 </div>
 
 <script>
@@ -501,7 +522,8 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
     + "&presenca=" + encodeURIComponent(presenca)
     + "&mensagem=" + encodeURIComponent(mensagem);
 
-  new Image().src = url;
+  fetch(url, { mode: "no-cors" }).catch(function() {});
+  var _img = new Image(); _img.src = url;
 
   setTimeout(function() {
     document.getElementById("rsvp-form").style.display = "none";
