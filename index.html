@@ -120,11 +120,12 @@ body {
 
 .couple-names {
   font-family: "Cormorant Garamond", serif;
-  font-size: 64px;
+  font-size: 56px;
   font-weight: 400;
   color: var(--text);
   line-height: 1.05;
   margin-bottom: 24px;
+  padding-right: 30%;
 }
 .couple-names .e-letter {
   display: block;
@@ -151,14 +152,11 @@ body {
 }
 
 /* ── CONFIRM BUTTON ── */
-.btn-confirm-wrap {
-  text-align: left;
-  margin-bottom: 14px;
-}
-
 .btn-confirm {
-  display: inline-block;
-  padding: 14px 32px;
+  display: block;
+  width: 80%;
+  margin: 0 auto 14px;
+  padding: 14px 20px;
   border: 1.5px solid var(--lavender);
   border-radius: 2px;
   font-size: 11px;
@@ -167,6 +165,7 @@ body {
   color: var(--lavender);
   font-weight: 500;
   text-decoration: none;
+  text-align: center;
   transition: all 0.3s;
   background: rgba(255,255,255,0.5);
   font-family: "Jost", sans-serif;
@@ -180,7 +179,6 @@ body {
   font-size: 14px;
   color: var(--text-mid);
   font-weight: 300;
-  text-align: left;
 }
 
 /* ── BOTTOM NAV ── */
@@ -407,10 +405,8 @@ body {
       16h
     </p>
 
-    <div class="btn-confirm-wrap">
-      <a href="#rsvp" class="btn-confirm">Confirmar Presença</a>
-      <p class="deadline-note">Confirmações até 07 de agosto de 2026</p>
-    </div>
+    <a href="#rsvp" class="btn-confirm">Confirmar Presença</a>
+    <p class="deadline-note">Confirmações até 07 de agosto de 2026</p>
   </header>
 
   <hr class="section-sep">
@@ -507,7 +503,7 @@ body {
 </div>
 
 <script>
-var SHEETS_URL = "https://script.google.com/macros/s/AKfycbyRonj4nA-xK0ZeTZEQ0lBTE7nPEh5qF8D4gj3RMocfrlHVdHIjkU22NaCpL2dkhPHwmg/exec";
+var SHEETS_URL = "https://script.google.com/macros/s/AKfycbz2rDG5ODtiDIqiLrZBlvm4WXyV-OcVwn7kb2VjjsUJ2UBvNKfz5XCdbGvb4UBNsAnElQ/exec";
 
 document.getElementById("rsvp-form").addEventListener("submit", function(e) {
   e.preventDefault();
