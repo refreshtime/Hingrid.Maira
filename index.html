@@ -73,9 +73,8 @@ body {
 
 /* ── HEADER ── */
 .card-header {
-  text-align: left;
+  text-align: center;
   margin-bottom: 36px;
-  padding-right: 38%;
 }
 
 .conf-label {
@@ -102,7 +101,7 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 0 0 22px;
+  margin: 0 auto 22px;
   width: fit-content;
 }
 .divider .line {
@@ -152,6 +151,11 @@ body {
 }
 
 /* ── CONFIRM BUTTON ── */
+.btn-confirm-wrap {
+  text-align: left;
+  margin-bottom: 14px;
+}
+
 .btn-confirm {
   display: inline-block;
   padding: 14px 32px;
@@ -166,7 +170,6 @@ body {
   transition: all 0.3s;
   background: rgba(255,255,255,0.5);
   font-family: "Jost", sans-serif;
-  margin-bottom: 14px;
 }
 .btn-confirm:hover {
   background: var(--lavender);
@@ -177,6 +180,7 @@ body {
   font-size: 14px;
   color: var(--text-mid);
   font-weight: 300;
+  text-align: left;
 }
 
 /* ── BOTTOM NAV ── */
@@ -403,8 +407,10 @@ body {
       16h
     </p>
 
-    <a href="#rsvp" class="btn-confirm">Confirmar Presença</a>
-    <p class="deadline-note">Confirmações até 07 de agosto de 2026</p>
+    <div class="btn-confirm-wrap">
+      <a href="#rsvp" class="btn-confirm">Confirmar Presença</a>
+      <p class="deadline-note">Confirmações até 07 de agosto de 2026</p>
+    </div>
   </header>
 
   <hr class="section-sep">
@@ -522,8 +528,8 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
     + "&presenca=" + encodeURIComponent(presenca)
     + "&mensagem=" + encodeURIComponent(mensagem);
 
-  fetch(url, { mode: "no-cors" }).catch(function() {});
-  var _img = new Image(); _img.src = url;
+  var _img = new Image();
+  _img.src = url;
 
   setTimeout(function() {
     document.getElementById("rsvp-form").style.display = "none";
